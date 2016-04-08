@@ -70,13 +70,14 @@ namespace Grow.Integrations
 				AppodealGrowIntegration.Instance.OnAdFailedToLoad(AdType.INTERSTITIAL);
 			}
 			public void onInterstitialShown() {
+				AppodealGrowIntegration.Instance.OnAdWillDisplay(AdType.INTERSTITIAL);
 				AppodealGrowIntegration.Instance.OnAdDisplayed(AdType.INTERSTITIAL);
 			}
 			public void onInterstitialClicked() {
 				AppodealGrowIntegration.Instance.OnAdClicked(AdType.INTERSTITIAL);
 			}
 			public void onInterstitialClosed() {
-				AppodealGrowIntegration.Instance.OnAdLoaded(AdType.INTERSTITIAL);
+				AppodealGrowIntegration.Instance.OnAdClosed(AdType.INTERSTITIAL);
 			}
 		}
 
@@ -88,10 +89,12 @@ namespace Grow.Integrations
 				AppodealGrowIntegration.Instance.OnAdFailedToLoad(AdType.VIDEO);
 			}
 			public void onSkippableVideoShown() {
+				AppodealGrowIntegration.Instance.OnAdWillDisplay(AdType.VIDEO);
 				AppodealGrowIntegration.Instance.OnAdDisplayed(AdType.VIDEO);
 			}
 			public void onSkippableVideoFinished() {
-				AppodealGrowIntegration.Instance.OnRewardedVideoCompleted(AdType.VIDEO);
+				//TODO: add video finished callback
+				//AppodealGrowIntegration.Instance.OnVideoCompleted(AdType.VIDEO);
 			}
 			public void onSkippableVideoClosed() {
 				AppodealGrowIntegration.Instance.OnAdClosed(AdType.VIDEO);
@@ -106,6 +109,7 @@ namespace Grow.Integrations
 				AppodealGrowIntegration.Instance.OnAdFailedToLoad(AdType.REWARDED_VIDEO);
 			}
 			public void onRewardedVideoShown() {
+				AppodealGrowIntegration.Instance.OnAdWillDisplay(AdType.REWARDED_VIDEO);
 				AppodealGrowIntegration.Instance.OnAdDisplayed(AdType.REWARDED_VIDEO);
 			}
 			public void onRewardedVideoFinished(int amount, string name) {
@@ -124,6 +128,7 @@ namespace Grow.Integrations
 				AppodealGrowIntegration.Instance.OnAdFailedToLoad(AdType.BANNER);
 			}
 			public void onBannerShown() {
+				AppodealGrowIntegration.Instance.OnAdWillDisplay(AdType.BANNER);
 				AppodealGrowIntegration.Instance.OnAdDisplayed(AdType.BANNER);
 			}
 			public void onBannerClicked() {
